@@ -7,9 +7,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
         StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
         // 입출입 기록의 개수 n
         int n = Integer.parseInt(br.readLine().trim());
-        HashSet<String> set = new HashSet<>();
+        HashSet<String> set = new HashSet<>((int)(n/0.75f+1));
         for (int i=0; i<n; i++) {
             st = new StringTokenizer(br.readLine(), " ");
             String name = st.nextToken();
@@ -27,7 +28,10 @@ public class Main {
         Collections.sort(result, Collections.reverseOrder());
 
         for (String s : result) {
-            System.out.println(s);
+            sb.append(s).append("\n");
         }
+
+        System.out.println(sb);
+        br.close();
     }
 }
